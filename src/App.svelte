@@ -9,6 +9,7 @@
     let inputNumber = 0
     let checkStatus = null
     let favColor = null
+    let favBrand = null
 
     //this means everytime inputValue varibale changes, console log the inputValue
     $:console.log(inputValue)
@@ -16,6 +17,7 @@
     $:console.log(1+inputNumber)
     $:console.log(checkStatus)
     $:console.log(favColor)
+    $:console.log(favBrand)
 
     function setValue(event){
         inputValue = event.target.value
@@ -28,8 +30,26 @@
 </script>
 
 <main>
+    <!-- select input binding -->
+    <h1 class="text-2xl p-5">
+        Your selected Brand is {#if favBrand}
+            <b class="text-blue-700">{favBrand}</b> 
+            {:else} 
+            <b class="text-white-700">{"empty"}</b> 
+        {/if}
+    </h1>
+    <select bind:value={favBrand} 
+    class="ml-5 select select-primary w-full max-w-xs">
+        <option disabled selected>Pick your favorite Brand</option>
+        <option value="Honda">Honda</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Ferrari">Ferrari</option>
+        <option value="Tesla">Tesla</option>
+        <option value="Mazda">Mazda</option>
+    </select>
 
-    
+    <hr class="mt-5">
+
     <!-- Radio button binding -->
     <!-- if we assign radio buttons a name then we can only choose one option -->
     <p class="flex pl-5 pt-5 text-white font-semibold">
