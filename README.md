@@ -8,11 +8,9 @@ This template should help get you started developing with Svelte in Vite.
 
 ## How to start? 
 
-1. run npm i
+1. npm i
 2. npm run dev
--To view the project in browser 
+(To view the project in browser) 
 3. npm run dev -- --host
--To expose IP address 
-
-## Technical considerations
+(To expose IP address )
 
