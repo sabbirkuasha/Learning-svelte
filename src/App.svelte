@@ -8,12 +8,14 @@
     let buttonChoosen = null
     let inputNumber = 0
     let checkStatus = null
-    
+    let favColor = null
+
     //this means everytime inputValue varibale changes, console log the inputValue
     $:console.log(inputValue)
     $:console.log("button number is: " + buttonChoosen)
     $:console.log(1+inputNumber)
     $:console.log(checkStatus)
+    $:console.log(favColor)
 
     function setValue(event){
         inputValue = event.target.value
@@ -26,6 +28,32 @@
 </script>
 
 <main>
+
+    
+    <!-- Radio button binding -->
+    <!-- if we assign radio buttons a name then we can only choose one option -->
+    <p class="flex pl-5 pt-5 text-white font-semibold">
+        <input type="radio" value="red" name="colorPicker"
+        bind:group={favColor} class="mr-2 checkbox checkbox-secondary" />
+        Red
+    </p>
+    <p class="flex pl-5 pt-3 text-white font-semibold">
+        <input type="radio" value="green" name="colorPicker"
+        bind:group={favColor} class="mr-2 checkbox checkbox-secondary" />
+        Green
+    </p>
+    <p class="flex pl-5 pt-3 text-white font-semibold">
+        <input type="radio" value="blue" name="colorPicker"
+        bind:group={favColor}  class="mr-2 checkbox checkbox-secondary" />
+        Blue
+    </p>
+    <h1 class="text-2xl p-5">
+        Your selected color is {#if favColor}
+            <b class="text-{favColor}-700">{favColor}</b> 
+            {:else} 
+            <b class="text-white-700">{"empty"}</b> 
+        {/if}
+    </h1>
 
     <!-- checkbox binding -->
     <p class="flex p-5 text-white font-semibold">
