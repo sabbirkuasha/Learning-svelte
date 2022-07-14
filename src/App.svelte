@@ -10,6 +10,7 @@
     let checkStatus = null
     let favColor = null
     let favBrand = null
+    let userNameInput = null
 
     //this means everytime inputValue varibale changes, console log the inputValue
     $:console.log(inputValue)
@@ -26,10 +27,39 @@
         inputNumber = event.target.value
         console.log(1+inputNumber)
     }
+    function saveData(){
+        // console.log(document.querySelector('#userName'))
+        // console.log(document.querySelector('#userName').value)
+        
+        console.log(userNameInput.value)
+        console.dir(userNameInput)
+    }
 
-</script>
+    </script>
 
 <main>
+
+    <!-- input and button binding together -->
+    <input type="text" id="userName" 
+        placeholder="Type here" 
+        class="input input-bordered input-warning 
+        w-full max-w-xs" 
+    />
+    <input type="text" id="userName" 
+        bind:this={userNameInput} 
+        placeholder="Type here 2" 
+        class="input input-bordered input-warning 
+        w-full max-w-xs" 
+    />
+    <button on:click={saveData}
+        class="btn btn-outline btn-warning">
+        Success
+    </button>
+
+    <hr class="mt-5">
+    
+    
+    
     <!-- select input binding -->
     <h1 class="text-2xl p-5">
         Your selected Brand is {#if favBrand}
