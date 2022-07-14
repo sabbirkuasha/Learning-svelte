@@ -6,20 +6,46 @@
     let inputValue2 = 'Default text2'
     let inputValue3 = 'Default Text3'
     let buttonChoosen = null
+    let inputNumber = 0
+    let checkStatus = null
     
     //this means everytime inputValue varibale changes, console log the inputValue
     $:console.log(inputValue)
     $:console.log("button number is: " + buttonChoosen)
+    $:console.log(1+inputNumber)
+    $:console.log(checkStatus)
 
     function setValue(event){
         inputValue = event.target.value
+    }
+    function setNumberValue(event){
+        inputNumber = event.target.value
+        console.log(1+inputNumber)
     }
 
 </script>
 
 <main>
-   <h1 class="text-2xl font-bold pl-5 mt-5">Binding form </h1>
+
+    <!-- checkbox binding -->
+    <p class="flex p-5 text-white font-semibold">
+        <input type="checkbox" bind:checked= {checkStatus}
+        class="mr-2 checkbox checkbox-primary" />
+        I accept the Terms and conditions
+    </p>
+    
+
+
+    <!-- input number -->
+    <h1 class="text-2xl font-bold pl-5 mt-5">
+        Input number  
+    </h1>
+   <input type="number" class="input input-bordered input-success
+   w-full max-w-xs ml-5" 
+   bind:value={inputNumber}
+   >
    
+    <h1 class="text-2xl font-bold pl-5 mt-5">Binding form </h1>
    <h2 class="pl-5"
    >Input Value is: {inputValue}</h2>
    <input class="input input-bordered 
